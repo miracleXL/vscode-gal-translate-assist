@@ -10,16 +10,32 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:gal-translate-assist.helloWorld"
+		"onStartupFinished"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "gal-translate-assist.helloWorld",
-				"title": "Hello World"
+				"command": "gal-translate-assist.dict",
+				"title": "字典查询"
 			}
-		]
+		],
+		"keybindings":[
+			{
+				"command": "gal-translate-assist.dict",
+				"key": "ctrl+shift+t",
+				"when": "editorHasSelection"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "gal-translate-assist.dict",
+					"group": "translate@1"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
@@ -36,5 +52,9 @@
 		"mocha": "^8.1.3",
 		"typescript": "^4.0.2",
 		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.3",
+		"request": "^2.88.2"
 	}
 }

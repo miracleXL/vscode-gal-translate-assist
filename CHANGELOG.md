@@ -2,11 +2,20 @@
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 预定下次更新内容
+
+1. 词典工具
+    * 划词翻译
+    * 自定义名词表
+
 ## 待更新
 
 1. 项目配置
     * 为每个项目启用不同的设置项
-2. 百度机翻（待定）
+    * 当前项目需要设置项（配置文件保存在项目隐藏目录中）
+        * 剧本提取正则表达式
+        * 角色设定
+2. 百度机翻
 3. 当前项目总览
     * 进度统计
     * 人员工作分配
@@ -33,3 +42,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 7. 一键上传工具
     * Git
     * 坚果云
+
+## Ver 0.0.1
+
+实现了最基本的字典查询，选中待查文字后，通过右键或快捷键（Ctrl + Shift + T）调用。
