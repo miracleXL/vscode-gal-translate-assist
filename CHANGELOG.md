@@ -31,6 +31,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
         * 专有名词
     * 调用词典查询
         * 日语词典
+            * mecab分词
         * 汉语词典
             * 近义词
             * 反义词
