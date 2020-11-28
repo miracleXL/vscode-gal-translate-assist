@@ -19,7 +19,7 @@ function activate(context) {
 	vscode.languages.registerHoverProvider({scheme:"file"},{
 		provideHover(){
 			let text = dictionary.get();
-			// console.log("1");
+			channel.appendLine(text);
 			if(text !== null) return new vscode.Hover(text);
 		}
 	});
