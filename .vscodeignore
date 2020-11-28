@@ -3,11 +3,10 @@
 test/**
 .gitignore
 .yarnrc
+.eslintrc.json
 vsc-extension-quickstart.md
 **/jsconfig.json
 **/*.map
 **/.eslintrc.json
-dict/ci.json
-dict/idio.json
-word.json
-xiehouyu.json
+src/**
+**/webpack.config.js

@@ -32,7 +32,7 @@ function activate(context) {
 			}
 			catch(e){
 				vscode.window.showErrorMessage("查询插件运行失败！");
-				console.log(e);
+				console.error(e);
 			}
 		});
 
