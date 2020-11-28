@@ -1,8 +1,7 @@
 "use strict";
 // const fs = require("fs");
 const request = require("request");
-const Func = require("./extension");
-const config = require("./config")
+const config = require("./config");
 
 exports.get = dictionary;
 exports.searchMydict = searchMydict;
@@ -11,34 +10,29 @@ exports.searchMydict = searchMydict;
 const mydict = require("./dict/mydict.json");
 var cache = {};
 
-function dictionary(){
-    let text = Func.selectedText();
+async function dictionary(text = ""){
     if(text === "") return null;
     // 缓存一次最近查询，有机会再优化
     if(cache[text]) return cache[text];
     // 首先查询自定义名词表
     if(mydict[text]) return mydict[text];
-    else{
-        return jp2zh(text).then(function(jsonData){
-                // console.log(jsonData);
-                cache[text] = convertResult(jsonData);
-                return cache[text];
-            }).catch(function(e){
-                console.log(e);
-                return "查询失败！";
-            });
-    }
+    cache[text] = await jp2zh(text);
+    config.channel.appendLine(cache[text]);
+    return cache[text];
 };
 
-function searchMydict(){
-    let text = Func.selectedText();
-    if(mydict[text]) Func.showMsg(mydict[text]);
-    else Func.showMsg("查找失败！请确认是否已添加进名词表");
-    return mydict[text];
+function searchMydict(text){
+    if(mydict[text]){
+        config.channel.appendLine(text + ":    " + mydict[text]);
+        return mydict[text];
+    }
+    else return "查找失败！请确认是否已添加进名词表";
 }
 
 
-function jp2zh(text){
+// 调用时应该使用await，且上级调用函数必须是异步函数async function，最外层非异步函数调用后应使用.then(处理函数)
+// convert的值表示是否转换为字符串，为false时返回json
+function jp2zh(text, convert = true){
     return new Promise(function(resolve, reject){
         var jsonData = {
             word : text,
@@ -48,10 +42,10 @@ function jp2zh(text){
             detail : []
         };
         request(encodeURI(config.config.hjUrl + text), config.config.header, (err, res, body) => {
-            if(err) reject(err);
+            if(err) reject("查询失败！");
             const cheerio = require('cheerio'), $ = cheerio.load(body);
             $(`.word-details-pane`).map(function (index, html){
-                if(index !== 0) reject({word:"查询失败！"});
+                if(index !== 0) reject("查询失败！");
                 let sub$ = cheerio.load(html);
                 sub$('.word-info .pronounces span').each(function(){
                     jsonData["katakana"].push($(this).text());
@@ -65,13 +59,13 @@ function jp2zh(text){
                     if(tmp != "") jsonData["detail"].push(tmp);
                 });
             })
-            // console.log("回调执行完成");
-            resolve(jsonData);
+            if(convert) resolve(convertResult(jsonData));
+            else resolve(jsonData);
         })
     });
 }
 
-// 转换查询结果
+// 转换查询结果至字符串
 function convertResult(jsonData){
     let msg = "";
     msg += jsonData["word"] + "  \n";

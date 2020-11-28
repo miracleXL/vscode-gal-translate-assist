@@ -1,4 +1,7 @@
-exports.config = {
+"use strict";
+const vscode = require("vscode");
+
+const config = {
     header : {
         headers: {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
@@ -14,4 +17,11 @@ exports.config = {
     // const xiehouyuUrl = __dirname+"\\dict\\xiehouyu.json";     //歇后语
     // const ciUrl = __dirname+"\\dict\\ci.json";                 //词典
     // const wordUrl = __dirname+"\\dict\\word.json";             //字典
+}
+
+const channel = vscode.window.createOutputChannel("词典查询结果");
+
+module.exports = {
+    config,
+    channel
 }
