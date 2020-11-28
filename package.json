@@ -17,7 +17,7 @@
 	"activationEvents": [
 		"onStartupFinished"
 	],
-	"main": "./src/extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -28,7 +28,7 @@
 		"keybindings": [
 			{
 				"command": "gal-translate-assist.dict",
-				"key": "ctrl+shift+t",
+				"key": "ctrl+shift+f",
 				"when": "editorHasSelection"
 			}
 		],

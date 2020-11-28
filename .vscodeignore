@@ -11,3 +11,4 @@ vsc-extension-quickstart.md
 src/**
 node_modules/**
 **/webpack.config.js
+**/*.vsix
