@@ -44,6 +44,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     * Git
     * 坚果云
 
+## ver 0.0.2  
+
+实现划词翻译，效率及缓存待优化，将快捷键更改为（Ctrl + Shift + F）
+
 ## Ver 0.0.1
 
 实现了最基本的字典查询，选中待查文字后，通过右键或快捷键（Ctrl + Shift + T）调用。
