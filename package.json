@@ -1,7 +1,7 @@
 {
-	"name": "gal-translate-assist",
-	"displayName": "GAL翻译助手",
-	"description": "沪江字典查询，划词翻译",
+	"name": "yume",
+	"displayName": "Yume —— gal翻译助手",
+	"description": "使用vscode翻译galgame的辅助插件",
 	"version": "0.0.2",
 	"publisher": "miracleXL",
 	"author": {
@@ -17,18 +17,35 @@
 	"activationEvents": [
 		"onStartupFinished"
 	],
-	"main": "./dist/extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "gal-translate-assist.dict",
-				"title": "字典查询"
+				"command": "yume.jpdict",
+				"title": "日语字典查询"
+			},
+			{
+				"command": "yume.searchMydict",
+				"title": "查询自定义名词表"
+			},
+			{
+				"command": "yume.addToMydict",
+				"title": "添加至自定义名词表"
+			},
+			{
+				"command": "yume.translate",
+				"title": "百度翻译"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "gal-translate-assist.dict",
-				"key": "ctrl+shift+f",
+				"command": "yume.jpdict",
+				"key": "ctrl+alt+w",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "yume.translate",
+				"key": "ctrl+alt+s",
 				"when": "editorHasSelection"
 			}
 		],
@@ -36,8 +53,18 @@
 			"editor/context": [
 				{
 					"when": "editorHasSelection",
-					"command": "gal-translate-assist.dict",
-					"group": "translate@1"
+					"command": "yume.jpdict",
+					"group": "gta@1"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "yume.searchMydict",
+					"group": "gta@2"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "yume.addToMydict",
+					"group": "gta@3"
 				}
 			]
 		}
@@ -72,7 +99,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/miracleXL/vscode-gal-translate-assist"
+		"url": "https://github.com/miracleXL/vscode-yume"
 	},
-	"homepage": "https://github.com/miracleXL/vscode-gal-translate-assist/blob/main/README.md"
+	"homepage": "https://github.com/miracleXL/vscode-yume/blob/main/README.md"
 }

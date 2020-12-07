@@ -1,5 +1,4 @@
 "use strict";
-const vscode = require("vscode");
 
 const config = {
     header : {
@@ -17,11 +16,9 @@ const config = {
     // const xiehouyuUrl = __dirname+"\\dict\\xiehouyu.json";     //歇后语
     // const ciUrl = __dirname+"\\dict\\ci.json";                 //词典
     // const wordUrl = __dirname+"\\dict\\word.json";             //字典
+
+    initialled: false,
 }
 
-const channel = vscode.window.createOutputChannel("词典查询结果");
 
-module.exports = {
-    config,
-    channel
-}
+exports.config = config;
