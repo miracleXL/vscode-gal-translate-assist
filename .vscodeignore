@@ -12,3 +12,4 @@ src/**
 node_modules/**
 **/webpack.config.js
 **/*.vsix
+设计图/**

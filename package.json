@@ -17,7 +17,7 @@
 	"activationEvents": [
 		"onStartupFinished"
 	],
-	"main": "./src/extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -65,6 +65,11 @@
 					"when": "editorHasSelection",
 					"command": "yume.addToMydict",
 					"group": "gta@3"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "yume.translate",
+					"group": "gta@4"
 				}
 			]
 		}

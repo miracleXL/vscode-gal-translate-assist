@@ -44,6 +44,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     * Git
     * 坚果云
 
+## 使用面向对象方法学重构  
+
+重新设计了模块结构，并使用类的方式重新编写。
+
 ## ver 0.0.2  
 
 实现划词翻译，效率及缓存待优化，将快捷键更改为（Ctrl + Shift + F）

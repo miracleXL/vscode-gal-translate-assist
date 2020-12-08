@@ -7,6 +7,9 @@ class Dictionary{
     constructor(){
         this.cache = {};
     }
+    autoSearch(text){
+        return "尚未实现";
+    }
 }
 
 class JPdict extends Dictionary{
@@ -28,7 +31,7 @@ class JPdict extends Dictionary{
                 simple : [],
                 detail : []
             };
-            request(encodeURI(config.hjUrl + text), config.header, (err, res, body) => {
+            request(encodeURI(config.hjUrl + text), config.hj_header, (err, res, body) => {
                 if(err) reject("查询失败！");
                 const cheerio = require('cheerio'), $ = cheerio.load(body);
                 $(`.word-details-pane`).map(function (index, html){
