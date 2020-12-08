@@ -2,7 +2,7 @@
 	"name": "yume",
 	"displayName": "Yume —— gal翻译助手",
 	"description": "使用vscode翻译galgame的辅助插件",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"publisher": "miracleXL",
 	"author": {
 		"name": "miracleXL",

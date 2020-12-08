@@ -4,9 +4,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## 预定下次更新内容
 
-1. 词典工具
-    * 划词翻译
-    * 自定义名词表
+初始化操作，将项目设置内容保存在打开的工作区
 
 ## 待更新
 
@@ -15,17 +13,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     * 当前项目需要设置项（配置文件保存在项目隐藏目录中）
         * 剧本提取正则表达式
         * 角色设定
-2. 百度机翻
-3. 当前项目总览
+2. 当前项目总览
     * 进度统计
     * 人员工作分配
     * 角色设定速览
-4. 快速查询
+3. 快速查询
     * 该插件使用文档
     * 当前项目宏指令集
     * 当前游戏引擎解封包步骤
     * 当前游戏引擎调试技巧
-5. 词典工具
+4. 词典工具
     * 自定义名词表
         * 角色用词习惯
         * 专有名词
@@ -38,15 +35,19 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
     * 划词翻译
         * 弹窗或终端输出
     * 快捷键绑定
-6. 剧本抽取工具
+5. 剧本抽取工具
     * 自定义提取正则表达式
-7. 一键上传工具
+6. 一键上传工具
     * Git
     * 坚果云
 
+## ver 0.1.0  
+
+实现百度机翻，快捷键为（Ctrl + Alt + S），单词查询快捷键改为（Ctrl + Alt + W）
+
 ## 使用面向对象方法学重构  
 
-重新设计了模块结构，并使用类的方式重新编写。
+重新设计了模块结构，并使用类的方式重新编写。删去不稳定的划词翻译
 
 ## ver 0.0.2  
 
