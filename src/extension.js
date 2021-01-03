@@ -10,6 +10,7 @@ const baiduAPI = require("./baiduAPI").baiduAPI;
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
+// 控制插件何时响应何种操作
 class ControlCenter{
 	constructor(){
 		this.channel = vscode.window.createOutputChannel("Yume");
@@ -27,7 +28,7 @@ class ControlCenter{
 			this.channel.show();
 		}).catch(e => {
 			vscode.window.showErrorMessage("查询失败！请检查错误日志！");
-			console.error(e);
+			this.logError(e);
 		});
 	}
 
@@ -41,7 +42,7 @@ class ControlCenter{
 			this.channel.show();
 		}).catch((e)=>{
 			vscode.window.showErrorMessage("查询失败！请检查错误日志");
-			console.error(e);
+			this.logError(e);
 		})
 	}
 
@@ -52,7 +53,7 @@ class ControlCenter{
 		}
 		catch(e){
 			vscode.window.showErrorMessage("未知错误！");
-			console.error(e);
+			this.logError(e);
 		}
 	}
 
@@ -79,7 +80,12 @@ class ControlCenter{
 		let selection = editor.selection;
 		return editor.document.getText(selection);
 	}
+
+	logError(e){
+		console.error(e);
+	}
 }
+// ControlCenter类结束
 
 
 /**
@@ -99,7 +105,7 @@ function activate(context) {
 }
 
 
-exports.activate = activate;
+// exports.activate = activate;
 
 // this method is called when your extension is deactivated
 function deactivate() {}
